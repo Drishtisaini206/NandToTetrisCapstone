@@ -1,0 +1,39 @@
+// Box.asm  -  K = 32
+(MAIN)
+    @KBD
+    D=M
+    @BLACK
+    D;JNE
+    @color
+    M=0
+    @PAINT
+    0;JMP
+(BLACK)
+    @color
+    M=-1
+(PAINT)
+    @17408
+    D=A
+    @addr
+    M=D
+    @20
+    D=A
+    @count
+    M=D
+(ROW)
+    @color
+    D=M
+    @addr
+    A=M
+    M=D
+    @32
+    D=A
+    @addr
+    M=M+D
+    @count
+    M=M-1
+    D=M
+    @ROW
+    D;JGT
+    @MAIN
+    0;JMP
